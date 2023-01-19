@@ -1,3 +1,5 @@
+import './Header.css'
+
 const Header = () => {
     return (
         <nav className='navbar navbar-expand-lg navbar-light shadow'>
