@@ -1,14 +1,15 @@
-import './Header.css'
+import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <nav className='navbar navbar-expand-lg navbar-light shadow'>
             <div className='container d-flex justify-content-between align-items-center'>
-                <a
-                    className='navbar-brand text-success logo h1 align-self-center'
-                    href='index.html'>
+                <Link
+                    to='/'
+                    className='navbar-brand text-success logo h1 align-self-center'>
                     Georgi's Shop
-                </a>
+                </Link>
 
                 <button
                     className='navbar-toggler border-0'
@@ -27,24 +28,29 @@ const Header = () => {
                     <div className='flex-fill'>
                         <ul className='nav navbar-nav d-flex justify-content-between mx-lg-auto'>
                             <li className='nav-item'>
-                                <a className='nav-link' href='index.html'>
+                                <Link className='nav-link' to='/'>
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li className='nav-item'>
-                                <a className='nav-link' href='about.html'>
+                                <Link className='nav-link' to='/about'>
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li className='nav-item'>
-                                <a className='nav-link' href='shop.html'>
+                                <Link className='nav-link' to='/shop-catalog'>
                                     Shop
-                                </a>
+                                </Link>
                             </li>
                             <li className='nav-item'>
-                                <a className='nav-link' href='contact.html'>
-                                    Contact
-                                </a>
+                                <Link className='nav-link' to='/login'>
+                                    Login
+                                </Link>
+                            </li>
+                            <li className='nav-item'>
+                                <Link className='nav-link' to='/register'>
+                                    Register
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -69,6 +75,13 @@ const Header = () => {
                             data-bs-target='#templatemo_search'>
                             <i className='fa fa-fw fa-search text-dark mr-2'></i>
                         </a>
+                        <Link
+                            className='nav-icon position-relative text-decoration-none'
+                            to='cart'>
+                            <i className='fa fa-fw fa-cart-arrow-down text-dark mr-1'></i>
+                            <span className='position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark'>
+                            </span>
+                        </Link>
                     </div>
                 </div>
             </div>
