@@ -1,13 +1,14 @@
 import './Register.css';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
 
 const Register = () => {
+    const navigate = useNavigate();
     const { signup, currentUser } = useAuth();
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -20,12 +21,10 @@ const Register = () => {
             return setError('Passwords do not match!');
 
         try {
-            setLoading(true);
-            await signup(email, password);
+            signup(email, password).then(() => navigate('/'));
         } catch (error) {
             console.error(error);
         }
-        setLoading(false);
     };
 
     return (
@@ -101,13 +100,9 @@ const Register = () => {
                         </label>
                     </div>
                 </div>
-                {loading ? (
-                    <image src='/assets/img/ajax-loader.gif' />
-                ) : (
-                    <button type='submit' className='btn btn-primary'>
-                        Create account
-                    </button>
-                )}
+                <button type='submit' className='btn btn-primary'>
+                    Create account
+                </button>
             </form>
         </>
     );
