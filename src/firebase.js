@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getFireStore } from '@firebase/firestore';
+import 'firebase/auth';
 
-// this should be private 
+// this should be private for security reasons
 const firebaseConfig = {
     apiKey: 'AIzaSyDVcXqguHKOp3T4ggfLDAyvx3BT0yyiv5k',
     authDomain: 't-shirt-shop-67b49.firebaseapp.com',
@@ -12,6 +13,8 @@ const firebaseConfig = {
     measurementId: 'G-Q1XR2LFB3Y',
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const db = getFireStore(app);
+
+export const auth = app.auth();
