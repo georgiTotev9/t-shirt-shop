@@ -9,8 +9,9 @@ export const AuthProvider = ({ children }) => {
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password);
     }
+    
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChange((user) => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
             setCurrentUser(user);
         });
 

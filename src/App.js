@@ -4,19 +4,24 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
+import Register from './components/Register';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
     return (
-        <div id='container'>
-            <Header />
-            <main id='site-content'>
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/about' element={<About />} />
-                </Routes>
-            </main>
-            <Footer />
-        </div>
+        <AuthProvider>
+            <div id='container'>
+                <Header />
+                <main id='site-content'>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/register' element={<Register />} />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </AuthProvider>
     );
 }
 

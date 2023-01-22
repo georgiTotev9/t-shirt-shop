@@ -1,9 +1,9 @@
-import { initializeApp } from 'firebase/app';
-import { getFireStore } from '@firebase/firestore';
-import 'firebase/auth';
+import * as firebase from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 // this should be private for security reasons
-const firebaseConfig = {
+
+const app = firebase.initializeApp({
     apiKey: 'AIzaSyDVcXqguHKOp3T4ggfLDAyvx3BT0yyiv5k',
     authDomain: 't-shirt-shop-67b49.firebaseapp.com',
     projectId: 't-shirt-shop-67b49',
@@ -11,10 +11,8 @@ const firebaseConfig = {
     messagingSenderId: '673746981274',
     appId: '1:673746981274:web:039c8a235ad7affe99aa23',
     measurementId: 'G-Q1XR2LFB3Y',
-};
+});
 
-export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
-export const db = getFireStore(app);
-
-export const auth = app.auth();
+export default app;

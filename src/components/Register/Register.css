@@ -1,0 +1,14 @@
+form {
+    margin: auto;
+    width: 50%;
+    height: 700px;
+}
+.btn {
+    width: 180px;
+    text-align: center;
+    background-color: darkgreen;
+}
+h1 {
+    color: darkgreen;
+    text-align: center;
+}
