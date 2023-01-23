@@ -1,5 +1,5 @@
 import './Register.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
 
@@ -34,7 +34,6 @@ const Register = () => {
             </h1>
             <br />
             <form onSubmit={submitHandler}>
-                {currentUser?.email}
                 {error && (
                     <div class='alert alert-danger' role='alert'>
                         {error}
@@ -88,22 +87,13 @@ const Register = () => {
                     />
                 </div>
                 <br />
-                <div className='form-group'>
-                    <div className='form-check'>
-                        <input
-                            className='form-check-input'
-                            type='checkbox'
-                            id='gridCheck'
-                        />
-                        <label className='form-check-label' htmlFor='gridCheck'>
-                            Remember me
-                        </label>
-                    </div>
-                </div>
                 <button type='submit' className='btn btn-primary'>
                     Create account
                 </button>
             </form>
+            <p>
+               Already have an account? <Link to='/login'>Login here!</Link>
+            </p>
         </>
     );
 };
