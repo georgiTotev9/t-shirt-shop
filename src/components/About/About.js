@@ -8,7 +8,7 @@ const About = () => {
                 <div className='container'>
                     <div className='row align-items-center py-5'>
                         <div className='col-md-8 text-white'>
-                            <h1>About Us</h1>
+                            <h1 style={{ color: 'white' }}>About Us</h1>
                             <p>
                                 Georgi's T-shirt Shop was founded in January
                                 2023 and is here to make revolution in the
