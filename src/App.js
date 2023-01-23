@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Register from './components/Register';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                         <Route path='/about' element={<About />} />
                         <Route path='/register' element={<Register />} />
                         <Route path='/login' element={<Login />} />
+                        <Route path='/logout' element={<Logout />} />
                     </Routes>
                 </main>
                 <Footer />

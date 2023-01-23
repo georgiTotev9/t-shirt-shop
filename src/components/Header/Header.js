@@ -1,7 +1,33 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Header = () => {
+    const { isAuthenticated } = useAuth();
+
+    const guestNav = (
+        <>
+            <li className='nav-item'>
+                <Link className='nav-link' to='/login'>
+                    Login
+                </Link>
+            </li>
+            <li className='nav-item'>
+                <Link className='nav-link' to='/register'>
+                    Register
+                </Link>
+            </li>
+        </>
+    );
+
+    const userNav = (
+        <li className='nav-item'>
+            <Link className='nav-link' to='/logout'>
+                Logout
+            </Link>
+        </li>
+    );
+
     return (
         <nav className='navbar navbar-expand-lg navbar-light shadow'>
             <div className='container d-flex justify-content-between align-items-center'>
@@ -42,16 +68,8 @@ const Header = () => {
                                     Shop
                                 </Link>
                             </li>
-                            <li className='nav-item'>
-                                <Link className='nav-link' to='/login'>
-                                    Login
-                                </Link>
-                            </li>
-                            <li className='nav-item'>
-                                <Link className='nav-link' to='/register'>
-                                    Register
-                                </Link>
-                            </li>
+
+                            {isAuthenticated ? userNav : guestNav}
                         </ul>
                     </div>
                     <div className='navbar align-self-center d-flex'>
@@ -79,8 +97,7 @@ const Header = () => {
                             className='nav-icon position-relative text-decoration-none'
                             to='cart'>
                             <i className='fa fa-fw fa-cart-arrow-down text-dark mr-1'></i>
-                            <span className='position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark'>
-                            </span>
+                            <span className='position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark'></span>
                         </Link>
                     </div>
                 </div>
