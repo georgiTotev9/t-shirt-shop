@@ -5,8 +5,9 @@ import { useState } from 'react';
 
 const Register = () => {
     const navigate = useNavigate();
-    const { signup, currentUser } = useAuth();
+    const { signup } = useAuth();
     const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -16,12 +17,16 @@ const Register = () => {
         let { email, password, confirmPassword, name } =
             Object.fromEntries(formData);
 
-        // todo: navigate
+        // todo: validator
         if (password !== confirmPassword)
             return setError('Passwords do not match!');
 
         try {
-            signup(email, password).then(() => navigate('/'));
+            setLoading(true);
+            signup(email, password).then(() => {
+                navigate('/');
+                setLoading(false);
+            });
         } catch (error) {
             console.error(error);
         }
@@ -87,12 +92,18 @@ const Register = () => {
                     />
                 </div>
                 <br />
-                <button type='submit' className='btn btn-primary'>
-                    Create account
-                </button>
+                {loading ? (
+                    <div className='spinner-border text-success' role='status'>
+                        <span className='visually-hidden'>Loading...</span>
+                    </div>
+                ) : (
+                    <button type='submit' className='btn btn-primary'>
+                        Create account
+                    </button>
+                )}
             </form>
             <p>
-               Already have an account? <Link to='/login'>Login here!</Link>
+                Already have an account? <Link to='/login'>Login here!</Link>
             </p>
         </>
     );

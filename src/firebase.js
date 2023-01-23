@@ -1,9 +1,9 @@
-import * as firebase from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
 // this should be private for security reasons
 
-const app = firebase.initializeApp({
+const app = initializeApp({
     apiKey: 'AIzaSyDVcXqguHKOp3T4ggfLDAyvx3BT0yyiv5k',
     authDomain: 't-shirt-shop-67b49.firebaseapp.com',
     projectId: 't-shirt-shop-67b49',
