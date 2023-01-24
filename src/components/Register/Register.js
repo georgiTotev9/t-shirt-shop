@@ -2,6 +2,7 @@ import './Register.css';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import { validateRegister } from '../../utils/validator';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -17,9 +18,16 @@ const Register = () => {
         let { email, password, confirmPassword, name } =
             Object.fromEntries(formData);
 
-        // todo: validator
-        if (password !== confirmPassword)
-            return setError('Passwords do not match!');
+        const errorMessage = validateRegister(
+            email,
+            password,
+            name,
+            confirmPassword
+        );
+        
+        if (errorMessage) {
+            return setError(errorMessage);
+        }
 
         try {
             setLoading(true);
@@ -27,8 +35,8 @@ const Register = () => {
                 navigate('/');
                 setLoading(false);
             });
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
         }
     };
 
@@ -40,7 +48,7 @@ const Register = () => {
             <br />
             <form onSubmit={submitHandler}>
                 {error && (
-                    <div class='alert alert-danger' role='alert'>
+                    <div className='alert alert-danger' role='alert'>
                         {error}
                     </div>
                 )}

@@ -2,11 +2,13 @@ import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
+import { validateLogin } from '../../utils/validator';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login, isAuthenticated } = useAuth();
+    const { login } = useAuth();
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -14,6 +16,12 @@ const Login = () => {
         let formData = new FormData(e.currentTarget);
 
         let { email, password } = Object.fromEntries(formData);
+
+        const errorMessage = validateLogin(email, password);
+
+        if (errorMessage) {
+            return setError(errorMessage);
+        }
 
         try {
             setLoading(true);
@@ -29,6 +37,11 @@ const Login = () => {
         <>
             <h1>Login</h1>
             <form onSubmit={submitHandler}>
+                {error && (
+                    <div className='alert alert-danger' role='alert'>
+                        {error}
+                    </div>
+                )}
                 <div className='mb-3'>
                     <label htmlFor='exampleInputEmail1' className='form-label'>
                         Email address
