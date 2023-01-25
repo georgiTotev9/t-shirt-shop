@@ -1,8 +1,8 @@
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 // this should be private for security reasons
-
 const app = initializeApp({
     apiKey: 'AIzaSyDVcXqguHKOp3T4ggfLDAyvx3BT0yyiv5k',
     authDomain: 't-shirt-shop-67b49.firebaseapp.com',
@@ -14,5 +14,7 @@ const app = initializeApp({
 });
 
 export const auth = getAuth(app);
+
+export const db = getFirestore(app);
 
 export default app;
