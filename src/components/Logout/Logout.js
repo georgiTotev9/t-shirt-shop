@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 const Logout = () => {
     const { logout } = useAuth();
+
     useEffect(() => {
         (async () => {
             await logout();
