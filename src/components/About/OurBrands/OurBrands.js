@@ -1,3 +1,5 @@
+import './OurBrands.css';
+
 const OurBrands = () => {
     return (
         <section className='bg-light py-5'>

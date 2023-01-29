@@ -10,6 +10,8 @@ import NotFound from './components/Common/NotFound';
 import ErrorBoundary from './components/Common/ErrorBoundary';
 import { AuthProvider } from './contexts/AuthContext';
 
+import './App.css';
+
 function App() {
     return (
         <ErrorBoundary>

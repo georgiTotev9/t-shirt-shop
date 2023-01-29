@@ -1,0 +1,9 @@
+.brand-img {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.brand-img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}

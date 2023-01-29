@@ -1,3 +1,5 @@
+import './OurServices.css'
+
 const OurServices = () => {
     return (
         <section className='container py-5'>
