@@ -10,9 +10,9 @@ const ProductCard = ({ product }) => {
                         src={product.imageUrl}
                         alt=''
                     />
-                    <div className='card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center'>
-                        <Link to={`/details/${product.id}`}></Link>
-                    </div>
+                    <Link to={`/details/${product.id}`}>
+                        <div className='card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center'></div>
+                    </Link>
                 </div>
                 <div className='card-body'>
                     <a
