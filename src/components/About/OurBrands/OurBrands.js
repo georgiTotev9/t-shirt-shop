@@ -11,16 +11,6 @@ const OurBrands = () => {
                     </div>
                     <div className='col-lg-9 m-auto tempaltemo-carousel'>
                         <div className='row d-flex flex-row'>
-                            <div className='col-1 align-self-center'>
-                                <a
-                                    className='h1'
-                                    href='#templatemo-slide-brand'
-                                    role='button'
-                                    data-bs-slide='prev'>
-                                    <i className='text-light fas fa-chevron-left'></i>
-                                </a>
-                            </div>
-
                             <div className='col'>
                                 <div
                                     className='carousel-inner product-links-wap'
@@ -75,16 +65,6 @@ const OurBrands = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className='col-1 align-self-center'>
-                                <a
-                                    className='h1'
-                                    href='#templatemo-slide-brand'
-                                    role='button'
-                                    data-bs-slide='next'>
-                                    <i className='text-light fas fa-chevron-right'></i>
-                                </a>
                             </div>
                         </div>
                     </div>

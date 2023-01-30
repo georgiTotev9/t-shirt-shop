@@ -10,7 +10,7 @@ const NotFound = () => {
                 className='alert alert-danger'
                 role='alert'
                 style={{ width: '95%', margin: 'auto' }}>
-                The page you are looking for does't exist or other error
+                The page you are looking for doesn't exist or other error
                 occurred.{' '}
                 <Link to='/' className='alert-link'>
                     Go Back.
