@@ -2,6 +2,7 @@ import { getAll } from '../../services/productService';
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import Spinner from 'react-bootstrap/Spinner';
+import './Catalog.css'
 
 const Catalog = () => {
     const [currentProducts, setCurrentProducts] = useState([]);
@@ -12,6 +13,7 @@ const Catalog = () => {
             setCurrentProducts(arr);
         });
     }, []);
+
     return (
         <div className='container py-5'>
             <div className='row'>
@@ -141,16 +143,20 @@ const Catalog = () => {
                             </div>
                         </div>
                     </div>
+                    <div className='products'>
+                        {currentProducts.length > 0 ? (
+                            currentProducts.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    product={product}
+                                />
+                            ))
+                        ) : (
+                            <Spinner animation='border' variant='success' />
+                        )}
+                    </div>
 
-                    {currentProducts.length > 0 ? (
-                        currentProducts.map((product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))
-                    ) : (
-                        <Spinner animation='border' variant='success' />
-                    )}
-
-                    <div div='row'>
+                    <div className='row'>
                         <ul className='pagination pagination-lg justify-content-end'>
                             <li className='page-item disabled'>
                                 <a

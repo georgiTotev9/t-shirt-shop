@@ -1,0 +1,11 @@
+.all {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin: 50px;
+    flex: 1;
+}
+
+.all:hover {
+    color: black;
+}
