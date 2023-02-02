@@ -156,7 +156,7 @@ const Catalog = () => {
                                 <a
                                     className='page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0'
                                     href='#'
-                                    tabindex='-1'>
+                                    tabIndex='-1'>
                                     1
                                 </a>
                             </li>
