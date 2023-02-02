@@ -11,13 +11,11 @@ const MostPopular = () => {
                 <div className='row'>
                     <div className='col-12 col-md-4 mb-4'>
                         <div className='card h-100'>
-                            <a href='shop-single.html'>
-                                <img
-                                    src='/assets/img/mostpopular_image_1.jpg'
-                                    className='card-img-top'
-                                    alt='...'
-                                />
-                            </a>
+                            <img
+                                src='/assets/img/mostpopular_image_1.jpg'
+                                className='card-img-top'
+                                alt='...'
+                            />
                             <div className='card-body'>
                                 <ul className='list-unstyled d-flex justify-content-between'>
                                     <li>
@@ -31,11 +29,9 @@ const MostPopular = () => {
                                         $20.00
                                     </li>
                                 </ul>
-                                <a
-                                    href='shop-single.html'
-                                    className='h2 text-decoration-none text-dark'>
+                                <span className='h2 text-decoration-none text-dark'>
                                     T-shirt Art Series
-                                </a>
+                                </span>
                                 <p className='card-text'>
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Sunt in culpa qui officia
@@ -47,13 +43,11 @@ const MostPopular = () => {
                     </div>
                     <div className='col-12 col-md-4 mb-4'>
                         <div className='card h-100'>
-                            <a href='shop-single.html'>
-                                <img
-                                    src='/assets/img/mostpopular_image_2.jpg'
-                                    className='card-img-top'
-                                    alt='...'
-                                />
-                            </a>
+                            <img
+                                src='/assets/img/mostpopular_image_2.jpg'
+                                className='card-img-top'
+                                alt='...'
+                            />
                             <div className='card-body'>
                                 <ul className='list-unstyled d-flex justify-content-between'>
                                     <li>
@@ -67,11 +61,9 @@ const MostPopular = () => {
                                         $25.00
                                     </li>
                                 </ul>
-                                <a
-                                    href='shop-single.html'
-                                    className='h2 text-decoration-none text-dark'>
+                                <span className='h2 text-decoration-none text-dark'>
                                     T-shirt Bruce Lee
-                                </a>
+                                </span>
                                 <p className='card-text'>
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Sunt in culpa qui officia
@@ -83,13 +75,11 @@ const MostPopular = () => {
                     </div>
                     <div className='col-12 col-md-4 mb-4'>
                         <div className='card h-100'>
-                            <a href='shop-single.html'>
-                                <img
-                                    src='/assets/img/mostpopular_image_3.jpg'
-                                    className='card-img-top'
-                                    alt='...'
-                                />
-                            </a>
+                            <img
+                                src='/assets/img/mostpopular_image_3.jpg'
+                                className='card-img-top'
+                                alt='...'
+                            />
                             <div className='card-body'>
                                 <ul className='list-unstyled d-flex justify-content-between'>
                                     <li>
@@ -103,11 +93,9 @@ const MostPopular = () => {
                                         $30.00
                                     </li>
                                 </ul>
-                                <a
-                                    href='shop-single.html'
-                                    className='h2 text-decoration-none text-dark'>
+                                <span className='h2 text-decoration-none text-dark'>
                                     Baseball Shirt
-                                </a>
+                                </span>
                                 <p className='card-text'>
                                     Lorem ipsum dolor sit amet, consectetur
                                     adipisicing elit. Sunt in culpa qui officia

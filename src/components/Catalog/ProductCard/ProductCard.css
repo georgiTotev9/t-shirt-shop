@@ -2,8 +2,12 @@
     text-decoration: none;
     color: black;
     display: block;
-    margin: 50px;
+    margin: 10px;
     flex: 1;
+    
+}
+.card-img{
+    max-height: 383px;
 }
 
 .all:hover {
