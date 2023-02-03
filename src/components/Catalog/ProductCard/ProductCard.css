@@ -3,11 +3,12 @@
     color: black;
     display: block;
     margin: 10px;
-    flex: 1;
-    
+    width: 31%;
+    min-width: 100px;
+    float: left;
 }
 .card-img{
-    max-height: 383px;
+    max-height: 380px;
 }
 
 .all:hover {
