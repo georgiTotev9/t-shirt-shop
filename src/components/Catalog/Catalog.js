@@ -17,7 +17,7 @@ const Catalog = () => {
   }, []);
 
   // ! not the best solution
-  const filterHandler = (e) => {
+  const priceFilterHandler = (e) => {
     let sortBy = e.currentTarget.value;
     if (sortBy == "above") {
       setCurrentProducts([...allProducts]);
@@ -25,6 +25,20 @@ const Catalog = () => {
     } else if (sortBy == "under") {
       setCurrentProducts([...allProducts]);
       setCurrentProducts((oldstate) => oldstate.filter((x) => x.price < 25));
+    } else {
+      setCurrentProducts([...allProducts]);
+    }
+  };
+
+  const typeFilterHandler = (e) => {
+    e.preventDefault();
+    let sortBy = e.currentTarget.textContent;
+    if (sortBy == "Shirts") {
+      setCurrentProducts([...allProducts]);
+      setCurrentProducts((oldstate) => oldstate.filter((x) => x.type == 'shirt'));
+    } else if (sortBy == "T-shirts") {
+        setCurrentProducts([...allProducts]);
+        setCurrentProducts((oldstate) => oldstate.filter((x) => x.type == 't-shirt'));  
     } else {
       setCurrentProducts([...allProducts]);
     }
@@ -114,7 +128,8 @@ const Catalog = () => {
                 <li className="list-inline-item">
                   <a
                     className="h3 text-dark text-decoration-none mr-3"
-                    href="#"
+                    href=""
+                    onClick={typeFilterHandler}
                   >
                     All
                   </a>
@@ -122,21 +137,26 @@ const Catalog = () => {
                 <li className="list-inline-item">
                   <a
                     className="h3 text-dark text-decoration-none mr-3"
-                    href="#"
+                    href=""
+                    onClick={typeFilterHandler}
                   >
-                    Men's
+                    Shirts
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="h3 text-dark text-decoration-none" href="#">
-                    Women's
+                  <a
+                    className="h3 text-dark text-decoration-none"
+                    href=""
+                    onClick={typeFilterHandler}
+                  >
+                    T-shirts
                   </a>
                 </li>
               </ul>
             </div>
             <div className="col-md-6 pb-4">
               <div className="d-flex">
-                <select className="form-control" onChange={filterHandler}>
+                <select className="form-control" onChange={priceFilterHandler}>
                   <option value="all">All</option>
                   <option value="under">Under $25</option>
                   <option value="above">Above $25</option>
