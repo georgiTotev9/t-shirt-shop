@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getOne } from '../../services/productService';
 import { useParams } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Details = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
+    const [size, setSize] = useState('Size');
 
     useEffect(() => {
         getOne(productId).then((productSnapshot) =>
@@ -21,7 +23,7 @@ const Details = () => {
                             <img
                                 className='card-img img-fluid'
                                 src={product?.imageUrl}
-                                alt='Card image cap'
+                                alt=''
                                 id='product-detail'
                             />
                         </div>
@@ -52,105 +54,30 @@ const Details = () => {
                                     <li>High quality.</li>
                                     <li>Original design.</li>
                                     <li>Made in Bulgaria.</li>
-                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                    <li>
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </li>
                                 </ul>
+                                // TODO: set dropdown selection to be visible
+                                <Dropdown
+                                    onChange={(e) => {
+                                        setSize(e.currentTarget.textContent)
+                                        console.log(e.currentTarget.textContent);
+                                        }}>
+                                    <Dropdown.Toggle
+                                        variant='success'
+                                        id='dropdown-basic'>
+                                        {size}
+                                    </Dropdown.Toggle>
 
-                                <form action='' method='GET'>
-                                    <input
-                                        type='hidden'
-                                        name='product-title'
-                                        value='Activewear'
-                                    />
-                                    <div className='row'>
-                                        <div className='col-auto'>
-                                            <ul className='list-inline pb-3'>
-                                                <li className='list-inline-item'>
-                                                    Size :
-                                                    <input
-                                                        type='hidden'
-                                                        name='product-size'
-                                                        id='product-size'
-                                                        value='S'
-                                                    />
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span className='btn btn-success btn-size'>
-                                                        S
-                                                    </span>
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span className='btn btn-success btn-size'>
-                                                        M
-                                                    </span>
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span className='btn btn-success btn-size'>
-                                                        L
-                                                    </span>
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span className='btn btn-success btn-size'>
-                                                        XL
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className='col-auto'>
-                                            <ul className='list-inline pb-3'>
-                                                <li className='list-inline-item text-right'>
-                                                    Quantity
-                                                    <input
-                                                        type='hidden'
-                                                        name='product-quanity'
-                                                        id='product-quanity'
-                                                        value='1'
-                                                    />
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span
-                                                        className='btn btn-success'
-                                                        id='btn-minus'>
-                                                        -
-                                                    </span>
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span
-                                                        className='badge bg-secondary'
-                                                        id='var-value'>
-                                                        1
-                                                    </span>
-                                                </li>
-                                                <li className='list-inline-item'>
-                                                    <span
-                                                        className='btn btn-success'
-                                                        id='btn-plus'>
-                                                        +
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div className='row pb-3'>
-                                        <div className='col d-grid'>
-                                            <button
-                                                type='submit'
-                                                className='btn btn-success btn-lg'
-                                                name='submit'
-                                                value='buy'>
-                                                Buy
-                                            </button>
-                                        </div>
-                                        <div className='col d-grid'>
-                                            <button
-                                                type='submit'
-                                                className='btn btn-success btn-lg'
-                                                name='submit'
-                                                value='addtocard'>
-                                                Add To Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item>S</Dropdown.Item>
+                                        <Dropdown.Item>M</Dropdown.Item>
+                                        <Dropdown.Item>L</Dropdown.Item>
+                                        <Dropdown.Item>XL</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </div>
                         </div>
                     </div>
