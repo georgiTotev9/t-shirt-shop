@@ -17,7 +17,7 @@ const Catalog = () => {
     }, []);
 
     // TODO: apply 2 filters at once
-    
+
     const priceFilterHandler = (e) => {
         let sortBy = e.currentTarget.value;
 
@@ -28,7 +28,7 @@ const Catalog = () => {
         } else {
             setResultProducts([...products]);
         }
-    };
+    };          
 
     const typeFilterHandler = (e) => {
         e.preventDefault();

@@ -4,7 +4,7 @@ import './ProductCard.css';
 const ProductCard = ({ product }) => {
     return (
         <Link
-            to={`/details/${product.id}`}
+            to={`/shop-catalog/details/${product.id}`}
             style={{
                 
             }}
