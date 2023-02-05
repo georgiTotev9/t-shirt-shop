@@ -3,12 +3,7 @@ import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
     return (
-        <Link
-            to={`/shop-catalog/details/${product.id}`}
-            style={{
-                
-            }}
-            className='all'>
+        <Link to={`/details/${product.id}`} style={{}} className='all'>
             <div className='card mb-4 product-wap rounded-0'>
                 <div className='card rounded-0'>
                     <img
