@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { getOne } from '../../services/productService';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 import './Details.css';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Details = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
+    const { isAuthenticated } = useAuth();
     const [size, setSize] = useState('Size');
 
     useEffect(() => {
@@ -88,12 +92,45 @@ const Details = () => {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     <br />
-                                    <Button
-                                        variant='primary'
-                                        size='lg'
-                                        className='cart-button'>
-                                        Add to card
-                                    </Button>
+                                    {!isAuthenticated ? (
+                                        <OverlayTrigger
+                                            trigger='click'
+                                            placement='bottom'
+                                            overlay={
+                                                <Popover id='popover-positioned-bottom'>
+                                                    <Popover.Header as='h3'>
+                                                        Not logged in!
+                                                    </Popover.Header>
+                                                    <Popover.Body>
+                                                        <strong>
+                                                            You must be logged
+                                                            in to add items to
+                                                            your shopping cart.
+                                                        </strong>
+                                                        <Link to='/login'>
+                                                            {' '}
+                                                            Login here!
+                                                        </Link>
+                                                    </Popover.Body>
+                                                </Popover>
+                                            }>
+                                            <Button
+                                                variant='primary'
+                                                size='lg'
+                                                className='cart-button'>
+                                                Add to card
+                                            </Button>
+                                        </OverlayTrigger>
+                                    ) : (
+                                        <Link to='/cart'>
+                                            <Button
+                                                variant='primary'
+                                                size='lg'
+                                                className='cart-button'>
+                                                Add to card
+                                            </Button>
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
