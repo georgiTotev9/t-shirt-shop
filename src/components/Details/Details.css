@@ -1,0 +1,12 @@
+.details-image {
+    max-height: 570px;
+}
+.cart-button{
+    float: right;
+    margin-right: 50px;
+    width: 605px;
+}
+.details-buttons{
+    display: inline;
+    margin: 0 auto;
+}

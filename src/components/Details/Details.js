@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { getOne } from '../../services/productService';
 import { useParams } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
+import './Details.css';
 
 const Details = () => {
     const { productId } = useParams();
@@ -21,7 +23,7 @@ const Details = () => {
                     <div className='col-lg-5 mt-5'>
                         <div className='card mb-3'>
                             <img
-                                className='card-img img-fluid'
+                                className='card-img img-fluid details-image'
                                 src={product?.imageUrl}
                                 alt=''
                                 id='product-detail'
@@ -59,25 +61,40 @@ const Details = () => {
                                         adipisicing elit.
                                     </li>
                                 </ul>
-                                // TODO: set dropdown selection to be visible
-                                <Dropdown
-                                    onChange={(e) => {
-                                        setSize(e.currentTarget.textContent)
-                                        console.log(e.currentTarget.textContent);
-                                        }}>
-                                    <Dropdown.Toggle
-                                        variant='success'
-                                        id='dropdown-basic'>
-                                        {size}
-                                    </Dropdown.Toggle>
+                                <div className='details-buttons'>
+                                    <Dropdown
+                                        onSelect={(eventKey) =>
+                                            setSize(eventKey)
+                                        }>
+                                        <Dropdown.Toggle
+                                            variant='success'
+                                            id='dropdown-basic'>
+                                            {size}
+                                        </Dropdown.Toggle>
 
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item>S</Dropdown.Item>
-                                        <Dropdown.Item>M</Dropdown.Item>
-                                        <Dropdown.Item>L</Dropdown.Item>
-                                        <Dropdown.Item>XL</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item eventKey='S'>
+                                                S
+                                            </Dropdown.Item>
+                                            <Dropdown.Item eventKey='M'>
+                                                M
+                                            </Dropdown.Item>
+                                            <Dropdown.Item eventKey='L'>
+                                                L
+                                            </Dropdown.Item>
+                                            <Dropdown.Item eventKey='XL'>
+                                                XL
+                                            </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    <br />
+                                    <Button
+                                        variant='primary'
+                                        size='lg'
+                                        className='cart-button'>
+                                        Add to card
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
