@@ -117,7 +117,7 @@ const Details = () => {
                                     {!isAuthenticated ? (
                                         popoverButton
                                     ) : (
-                                        <Link to='/cart'>
+                                        <Link to='/shopping-cart'>
                                             <Button
                                                 variant='primary'
                                                 size='lg'
