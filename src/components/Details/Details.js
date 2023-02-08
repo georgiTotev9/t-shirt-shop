@@ -13,6 +13,7 @@ const Details = () => {
     const [product, setProduct] = useState(null);
     const { isAuthenticated } = useAuth();
     const [size, setSize] = useState('Size');
+    const [count, setCount] = useState('Count');
 
     useEffect(() => {
         getOne(productId).then((productSnapshot) =>
@@ -88,31 +89,76 @@ const Details = () => {
                                     </li>
                                 </ul>
                                 <div className='details-buttons'>
-                                    <Dropdown
-                                        onSelect={(eventKey) =>
-                                            setSize(eventKey)
-                                        }>
-                                        <Dropdown.Toggle
-                                            variant='success'
-                                            id='dropdown-basic'>
-                                            {size}
-                                        </Dropdown.Toggle>
+                                    <div
+                                        className='dropdowns'
+                                        style={{
+                                            display: 'inline',
+                                            margin: '20px',
+                                        }}>
+                                        <Dropdown
+                                            onSelect={(eventKey) =>
+                                                setSize(eventKey)
+                                            }
+                                            style={{
+                                                display: 'inline',
+                                                margin: '15px',
+                                            }}>
+                                            <Dropdown.Toggle
+                                                variant='success'
+                                                id='dropdown-basic'>
+                                                {size}
+                                            </Dropdown.Toggle>
 
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item eventKey='S'>
-                                                S
-                                            </Dropdown.Item>
-                                            <Dropdown.Item eventKey='M'>
-                                                M
-                                            </Dropdown.Item>
-                                            <Dropdown.Item eventKey='L'>
-                                                L
-                                            </Dropdown.Item>
-                                            <Dropdown.Item eventKey='XL'>
-                                                XL
-                                            </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item eventKey='S'>
+                                                    S
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='M'>
+                                                    M
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='L'>
+                                                    L
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='XL'>
+                                                    XL
+                                                </Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+
+                                        <Dropdown
+                                            onSelect={(eventKey) =>
+                                                setCount(eventKey)
+                                            }
+                                            style={{
+                                                display: 'inline',
+                                                margin: '15px',
+                                            }}>
+                                            <Dropdown.Toggle
+                                                variant='success'
+                                                id='dropdown-basic'>
+                                                {count}
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item eventKey='1'>
+                                                    1
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='2'>
+                                                    2
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='3'>
+                                                    3
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='4'>
+                                                    4
+                                                </Dropdown.Item>
+                                                <Dropdown.Item eventKey='5'>
+                                                    5
+                                                </Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </div>
+
                                     <br />
                                     {!isAuthenticated ? (
                                         popoverButton
@@ -121,7 +167,10 @@ const Details = () => {
                                             <Button
                                                 variant='primary'
                                                 size='lg'
-                                                className='cart-button'>
+                                                className='cart-button'
+                                                style={{
+                                                    marginTop: '15px',
+                                                }}>
                                                 Add to card
                                             </Button>
                                         </Link>
