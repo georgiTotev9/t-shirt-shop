@@ -1,5 +1,5 @@
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
 import ConfirmDialog from '../Common/ConfirmDialog';
@@ -7,16 +7,18 @@ import ConfirmDialog from '../Common/ConfirmDialog';
 const Header = () => {
     const { isAuthenticated, logout } = useAuth();
     const [showDialog, setShowDialog] = useState(false);
+    const navigate = useNavigate();
 
     const logoutClickHandler = (e) => {
         e.preventDefault();
         setShowDialog(true);
     };
-    
+
     const logoutHandler = async (e) => {
         e.preventDefault();
         await logout();
         setShowDialog(false);
+        navigate('/');
     };
 
     const guestNav = (
