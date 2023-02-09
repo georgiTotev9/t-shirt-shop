@@ -1,6 +1,4 @@
-import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
-import CloseButton from 'react-bootstrap/CloseButton';
+import CartList from './CartList';
 import { getCart } from '../../services/shoppingCartService';
 import './ShoppingCart.css';
 import { useEffect, useState } from 'react';
@@ -23,24 +21,7 @@ const ShoppingCart = () => {
             <div className='cart-container'>
                 <h3 className='subtitle'>Products:</h3>
                 {cartProducts.map((product) => (
-                    <ListGroup
-                        as='ol'
-                        numbered
-                        className='shop-list'
-                        key={product.id}>
-                        <ListGroup.Item
-                            as='li'
-                            className='d-flex justify-content-between align-items-start shop-list'>
-                            <div className='ms-2 me-auto'>
-                                <div className='fw-bold'>{product.name}</div>
-                                smth here
-                            </div>
-                            <Badge bg='primary' pill>
-                                {product.quantity}
-                            </Badge>
-                            <CloseButton />
-                        </ListGroup.Item>
-                    </ListGroup>
+                    <CartList product={product} />
                 ))}
 
                 <h4 className='total-subtitle'>Total Price: $25.00</h4>
