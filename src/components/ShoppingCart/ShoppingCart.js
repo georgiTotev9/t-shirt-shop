@@ -16,8 +16,6 @@ const ShoppingCart = () => {
         });
     }, []);
 
-    //TODO: add component for cart list and spinner for loading
-
     return (
         <>
             <h1>Your Shopping Cart</h1>
