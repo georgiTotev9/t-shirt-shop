@@ -139,7 +139,7 @@ const Details = () => {
 
                                     <br />
                                     {!isAuthenticated ? (
-                                        <PopoverComponent>
+                                        <PopoverComponent title='Not logged in!'>
                                             <strong>
                                                 You must be logged in to add
                                                 items to your shopping cart.
@@ -149,7 +149,7 @@ const Details = () => {
                                                 Login here!
                                             </Link>
                                         </PopoverComponent>
-                                    ) : (
+                                    ) : (size != 'Size' && count != 'Count' ? (
                                         <Link to='/shopping-cart'>
                                             <Button
                                                 variant='primary'
@@ -161,7 +161,13 @@ const Details = () => {
                                                 Add to card
                                             </Button>
                                         </Link>
-                                    )}
+                                    ) : (
+                                        <PopoverComponent title='Not selected!'>
+                                            <strong>
+                                                You must select size and count.
+                                            </strong>
+                                        </PopoverComponent>
+                                    ))}
                                 </div>
                             </div>
                         </div>

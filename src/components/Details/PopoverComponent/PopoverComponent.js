@@ -3,14 +3,14 @@ import Popover from 'react-bootstrap/Popover';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-const PopoverComponent = ({ children }) => {
+const PopoverComponent = ({ children, title }) => {
     return (
         <OverlayTrigger
             trigger='click'
             placement='bottom'
             overlay={
                 <Popover id='popover-positioned-bottom'>
-                    <Popover.Header as='h3'>Not logged in!</Popover.Header>
+                    <Popover.Header as='h3'>{title}</Popover.Header>
                     <Popover.Body>{children}</Popover.Body>
                 </Popover>
             }>
