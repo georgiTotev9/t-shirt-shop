@@ -3,10 +3,10 @@ import { getOne } from '../../services/productService';
 import { useParams, Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+
 import './Details.css';
 import { useAuth } from '../../contexts/AuthContext';
+import PopoverComponent from './PopoverComponent';
 
 const Details = () => {
     const { productId } = useParams();
@@ -20,28 +20,6 @@ const Details = () => {
             setProduct(productSnapshot.data())
         );
     }, [productId]);
-
-    const popoverButton = (
-        <OverlayTrigger
-            trigger='click'
-            placement='bottom'
-            overlay={
-                <Popover id='popover-positioned-bottom'>
-                    <Popover.Header as='h3'>Not logged in!</Popover.Header>
-                    <Popover.Body>
-                        <strong>
-                            You must be logged in to add items to your shopping
-                            cart.
-                        </strong>
-                        <Link to='/login'> Login here!</Link>
-                    </Popover.Body>
-                </Popover>
-            }>
-            <Button variant='primary' size='lg' className='cart-button'>
-                Add to card
-            </Button>
-        </OverlayTrigger>
-    );
 
     return (
         <section className='bg-light'>
@@ -161,7 +139,16 @@ const Details = () => {
 
                                     <br />
                                     {!isAuthenticated ? (
-                                        popoverButton
+                                        <PopoverComponent>
+                                            <strong>
+                                                You must be logged in to add
+                                                items to your shopping cart.
+                                            </strong>
+                                            <Link to='/login'>
+                                                {' '}
+                                                Login here!
+                                            </Link>
+                                        </PopoverComponent>
                                     ) : (
                                         <Link to='/shopping-cart'>
                                             <Button
