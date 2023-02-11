@@ -26,7 +26,6 @@ const Details = () => {
 
     const addToCartHandler = () => {
         addCartProduct({
-            id: productId,
             name: product.name,
             quantity: count,
             price: product.price,
