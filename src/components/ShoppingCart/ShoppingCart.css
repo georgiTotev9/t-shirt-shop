@@ -1,16 +1,16 @@
 .shop-list {
     width: 700px;
-    display: inline-block;
     text-align: left;
-    margin-bottom: 25px;
-
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 7px;
 }
 .cart-container {
     text-align: center;
 }
-.subtitle{
+.subtitle {
     margin-top: 25px;
 }
-.total-subtitle{
+.total-subtitle {
     margin-bottom: 40px;
 }
