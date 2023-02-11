@@ -27,10 +27,12 @@ const ShoppingCart = () => {
         );
     };
 
-    let totalPrice = cartProducts.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.data().price,
-        0
-    );
+    let totalPrice = cartProducts.reduce((accumulator, currentValue) => {
+        return (
+            accumulator +
+            currentValue.data().quantity * currentValue.data().price
+        );
+    }, 0);
 
     return (
         <>
