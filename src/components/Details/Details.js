@@ -29,6 +29,7 @@ const Details = () => {
             name: product.name,
             quantity: count,
             price: product.price,
+            size: size,
         }).then(() => navigate('/shopping-cart'));
     };
 

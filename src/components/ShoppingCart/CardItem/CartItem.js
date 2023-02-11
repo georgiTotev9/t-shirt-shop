@@ -8,13 +8,20 @@ const CardItem = ({ product, productId, deleteHandler }) => {
             as='li'
             className='d-flex justify-content-between align-items-start shop-list'>
             <div className='ms-2 me-auto'>
-                <div className='fw-bold'>{product.name}</div>
+                <div className='fw-bold'>
+                    {product.name}{' '}
+                    <Badge bg='primary' pill className='size'>{product.size}</Badge>
+                </div>
                 Price: ${product.price * product.quantity}.00
             </div>
+
             <Badge bg='primary' pill className='count'>
                 {product.quantity}
             </Badge>
-            <CloseButton className='close' onClick={() => deleteHandler(productId)} />
+            <CloseButton
+                className='close'
+                onClick={() => deleteHandler(productId)}
+            />
         </ListGroup.Item>
     );
 };

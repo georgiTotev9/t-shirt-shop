@@ -27,6 +27,11 @@ const ShoppingCart = () => {
         );
     };
 
+    let totalPrice = cartProducts.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.data().price,
+        0
+    );
+
     return (
         <>
             <h1>Your Shopping Cart</h1>
@@ -52,7 +57,9 @@ const ShoppingCart = () => {
                                 />
                             ))}
                         </ListGroup>
-                        <h4 className='total-subtitle'>Total Price: $25.00</h4>
+                        <h4 className='total-subtitle'>
+                            Total Price: ${totalPrice}.00
+                        </h4>
                     </>
                 )}
             </div>
