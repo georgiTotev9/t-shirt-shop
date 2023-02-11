@@ -2,7 +2,7 @@ import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useState } from 'react';
-import ConfirmDialog from '../Common/ConfirmDialog';
+import LogoutDialog from '../Common/LogoutDialog';
 
 const Header = () => {
     const { isAuthenticated, logout } = useAuth();
@@ -122,7 +122,7 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-            <ConfirmDialog
+            <LogoutDialog
                 show={showDialog}
                 onClose={() => setShowDialog(false)}
                 onConfirm={logoutHandler}
