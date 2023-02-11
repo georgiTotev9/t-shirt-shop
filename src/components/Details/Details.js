@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getOne } from '../../services/productService';
-import { useParams, Link } from 'react-router-dom';
+import { addCartProduct } from '../../services/shoppingCartService';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
@@ -10,8 +11,10 @@ import PopoverComponent from './PopoverComponent';
 
 const Details = () => {
     const { productId } = useParams();
-    const [product, setProduct] = useState(null);
     const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
+    const [product, setProduct] = useState(null);
     const [size, setSize] = useState('Size');
     const [count, setCount] = useState('Count');
 
@@ -20,6 +23,15 @@ const Details = () => {
             setProduct(productSnapshot.data())
         );
     }, [productId]);
+
+    const addToCartHandler = () => {
+        addCartProduct({
+            id: productId,
+            name: product.name,
+            quantity: count,
+            price: product.price,
+        }).then(() => navigate('/shopping-cart'));
+    };
 
     return (
         <section className='bg-light'>
@@ -149,25 +161,24 @@ const Details = () => {
                                                 Login here!
                                             </Link>
                                         </PopoverComponent>
-                                    ) : (size != 'Size' && count != 'Count' ? (
-                                        <Link to='/shopping-cart'>
-                                            <Button
-                                                variant='primary'
-                                                size='lg'
-                                                className='cart-button'
-                                                style={{
-                                                    marginTop: '15px',
-                                                }}>
-                                                Add to card
-                                            </Button>
-                                        </Link>
+                                    ) : size != 'Size' && count != 'Count' ? (
+                                        <Button
+                                            variant='primary'
+                                            size='lg'
+                                            className='cart-button'
+                                            onClick={addToCartHandler}
+                                            style={{
+                                                marginTop: '15px',
+                                            }}>
+                                            Add to card
+                                        </Button>
                                     ) : (
                                         <PopoverComponent title='Not selected!'>
                                             <strong>
                                                 You must select size and count.
                                             </strong>
                                         </PopoverComponent>
-                                    ))}
+                                    )}
                                 </div>
                             </div>
                         </div>
