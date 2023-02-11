@@ -1,7 +1,6 @@
 .shop-list {
     width: 700px;
     text-align: left;
-    display: table;
     margin: 0 auto;
     margin-bottom: 7px;
 }
@@ -13,4 +12,11 @@
 }
 .total-subtitle {
     margin-bottom: 40px;
+}
+.count {
+    margin: 17px;
+}
+
+.close {
+    margin-top: 15px;
 }

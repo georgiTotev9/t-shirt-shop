@@ -3,6 +3,7 @@ import { getCart } from '../../services/shoppingCartService';
 import './ShoppingCart.css';
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const ShoppingCart = () => {
     const [cartProducts, setCartProducts] = useState([]);
@@ -31,9 +32,11 @@ const ShoppingCart = () => {
                     )
                 ) : (
                     <>
-                        {cartProducts.map((product) => (
-                            <CartList product={product} />
-                        ))}
+                        <ListGroup as='ol' numbered className='shop-list'>
+                            {cartProducts.map((product) => (
+                                <CartList product={product} key={product.id} />
+                            ))}
+                        </ListGroup>
                         <h4 className='total-subtitle'>Total Price: $25.00</h4>
                     </>
                 )}

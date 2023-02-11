@@ -4,7 +4,6 @@ import Badge from 'react-bootstrap/Badge';
 
 const CartList = ({ product }) => {
     return (
-        <ListGroup as='ol' numbered className='shop-list' key={product.id}>
             <ListGroup.Item
                 as='li'
                 className='d-flex justify-content-between align-items-start shop-list'>
@@ -12,12 +11,11 @@ const CartList = ({ product }) => {
                     <div className='fw-bold'>{product.name}</div>
                     Price: ${product.price * product.quantity}.00
                 </div>
-                <Badge bg='primary' pill>
+                <Badge bg='primary' pill className='count'>
                     {product.quantity}
                 </Badge>
-                <CloseButton />
+                <CloseButton className='close' />
             </ListGroup.Item>
-        </ListGroup>
     );
 };
 
