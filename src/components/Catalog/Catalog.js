@@ -2,6 +2,9 @@ import { getAll } from '../../services/productService';
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import Spinner from 'react-bootstrap/Spinner';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 import './Catalog.css';
 
 const Catalog = () => {
@@ -28,7 +31,7 @@ const Catalog = () => {
         } else {
             setResultProducts([...products]);
         }
-    };          
+    };
 
     const typeFilterHandler = (e) => {
         e.preventDefault();
@@ -38,6 +41,18 @@ const Catalog = () => {
             setResultProducts(products.filter((x) => x.type == 'shirt'));
         } else if (sortBy == 'T-shirts') {
             setResultProducts(products.filter((x) => x.type == 't-shirt'));
+        } else {
+            setResultProducts([...products]);
+        }
+    };
+
+    const searchHandler = (e) => {
+        let searchWord = e.currentTarget.value;
+
+        if (searchWord) {
+            setResultProducts(
+                products.filter((x) => x.name.includes(searchWord))
+            );
         } else {
             setResultProducts([...products]);
         }
@@ -164,6 +179,16 @@ const Catalog = () => {
                                     </a>
                                 </li>
                             </ul>
+                            <InputGroup className='mb-3'>
+                                <InputGroup.Text id='inputGroup-sizing-default'>
+                                    Search
+                                </InputGroup.Text>
+                                <Form.Control
+                                    aria-label='Default'
+                                    aria-describedby='inputGroup-sizing-default'
+                                    onChange={searchHandler}
+                                />
+                            </InputGroup>
                         </div>
                         <div className='col-md-6 pb-4'>
                             <div className='d-flex'>
