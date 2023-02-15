@@ -105,19 +105,14 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
-                            <a
-                                className='nav-icon d-none d-lg-inline'
-                                href='#'
-                                data-bs-toggle='modal'
-                                data-bs-target='#templatemo_search'>
-                                <i className='fa fa-fw fa-search text-dark mr-2'></i>
-                            </a>
-                            <Link
-                                className='nav-icon position-relative text-decoration-none'
-                                to='/shopping-cart'>
-                                <i className='fa fa-fw fa-cart-arrow-down text-dark mr-1'></i>
-                                <span className='position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark'>1</span>
-                            </Link>
+                            {isAuthenticated && (
+                                <Link
+                                    className='nav-icon position-relative text-decoration-none'
+                                    to='/shopping-cart'>
+                                    <i className='fa fa-fw fa-cart-arrow-down text-dark mr-1'></i>
+                                    <span className='position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark'></span>
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>
