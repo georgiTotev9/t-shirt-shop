@@ -12,8 +12,8 @@ const Catalog = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        getAll().then((products) => {
-            const arr = products.docs.map((x) => x.data());
+        getAll().then((res) => {
+            const arr = res.docs.map((x) => x.data());
             setResultProducts(arr);
             setProducts(arr);
         });

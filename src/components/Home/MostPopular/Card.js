@@ -3,9 +3,10 @@ const Card = ({ product }) => {
         <div className='col-12 col-md-4 mb-4'>
             <div className='card h-100'>
                 <img
-                    src='/assets/img/mostpopular_image_1.jpg'
+                    src={product.imageUrl}
                     className='card-img-top'
                     alt='...'
+                    style={{ maxHeight: '525px'}}
                 />
                 <div className='card-body'>
                     <ul className='list-unstyled d-flex justify-content-between'>
