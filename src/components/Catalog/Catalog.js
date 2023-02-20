@@ -1,8 +1,9 @@
 import { getAll } from '../../services/productService';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ProductCard from './ProductCard';
 import Spinner from 'react-bootstrap/Spinner';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import './Catalog.css';
@@ -10,6 +11,7 @@ import './Catalog.css';
 const Catalog = () => {
     const [resultProducts, setResultProducts] = useState([]);
     const [products, setProducts] = useState([]);
+    const searchInput = useRef(null);
 
     useEffect(() => {
         getAll().then((res) => {
@@ -18,8 +20,6 @@ const Catalog = () => {
             setProducts(arr);
         });
     }, []);
-
-    // TODO: apply 2 filters at once
 
     const priceFilterHandler = (e) => {
         let sortBy = e.currentTarget.value;
@@ -47,15 +47,11 @@ const Catalog = () => {
     };
 
     const searchHandler = (e) => {
-        let searchWord = e.currentTarget.value;
+        let searchWord = searchInput.current.value;
 
-        if (searchWord) {
-            setResultProducts(
-                products.filter((x) => x.name.includes(searchWord))
-            );
-        } else {
-            setResultProducts([...products]);
-        }
+        if (!searchWord) return;
+
+        setResultProducts(products.filter((x) => x.name.includes(searchWord)));
     };
 
     return (
@@ -179,16 +175,28 @@ const Catalog = () => {
                                     </a>
                                 </li>
                             </ul>
-                            <InputGroup className='mb-3'>
-                                <InputGroup.Text id='inputGroup-sizing-default'>
-                                    Search
-                                </InputGroup.Text>
+                            <InputGroup>
                                 <Form.Control
-                                    aria-label='Default'
-                                    aria-describedby='inputGroup-sizing-default'
-                                    onChange={searchHandler}
+                                    placeholder='search here...'
+                                    ref={searchInput}
                                 />
+                                <Button
+                                    variant='outline-secondary'
+                                    onClick={searchHandler}
+                                    className='normal-button'>
+                                    Search
+                                </Button>
+                                <Button
+                                    variant='outline-secondary'
+                                    onClick={() => {
+                                        searchInput.current.value = '';
+                                        setResultProducts([...products]);
+                                    }}
+                                    className='normal-button'>
+                                    Clear
+                                </Button>
                             </InputGroup>
+                            <br />
                         </div>
                         <div className='col-md-6 pb-4'>
                             <div className='d-flex'>

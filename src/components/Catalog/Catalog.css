@@ -2,3 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+.normal-button {
+  width: 85px;
+  background-color: whitesmoke;
+}
