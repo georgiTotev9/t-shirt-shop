@@ -1,13 +1,18 @@
-const Card = ({ product }) => {
+import { Link } from 'react-router-dom';
+
+const Card = ({ product}) => {
+
     return (
         <div className='col-12 col-md-4 mb-4'>
             <div className='card h-100'>
-                <img
-                    src={product.imageUrl}
-                    className='card-img-top'
-                    alt='...'
-                    style={{ maxHeight: '525px'}}
-                />
+                <Link to={`/details/${product.id}`}>
+                    <img
+                        src={product.imageUrl}
+                        className='card-img-top'
+                        alt='...'
+                        style={{ maxHeight: '525px' }}
+                    />
+                </Link>
                 <div className='card-body'>
                     <ul className='list-unstyled d-flex justify-content-between'>
                         <li>
