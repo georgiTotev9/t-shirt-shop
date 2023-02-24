@@ -1,6 +1,6 @@
 # T-Shirt Shop React Project
 
-Single-page application made with React.js and Firebase(Cloud Firestore and Firebase Authentication).
+Single-page application made with React.js and Firebase (Cloud Firestore and Firebase Authentication).
 
 ## App Content
 * Home Page
@@ -10,6 +10,11 @@ Single-page application made with React.js and Firebase(Cloud Firestore and Fire
 * Register
 * Shopping Cart
 
+## Technologies 
+* React
+* React-Bootstrap
+* React Router
+* Firebase
 
 ## Available Scripts
 
