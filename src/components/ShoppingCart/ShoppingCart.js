@@ -43,7 +43,7 @@ const ShoppingCart = () => {
                     loading ? (
                         <Spinner animation='border' variant='success' />
                     ) : (
-                        <h4 className='total-subtitle'>
+                        <h4 className='empty-subtitle'>
                             You ShoppingCart is Empty.
                         </h4>
                     )

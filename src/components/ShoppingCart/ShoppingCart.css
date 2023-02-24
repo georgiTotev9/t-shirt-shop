@@ -9,9 +9,15 @@
 }
 .subtitle {
     margin-top: 25px;
+    margin-bottom: 35px;
 }
 .total-subtitle {
-    margin-bottom: 40px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.empty-subtitle{
+    margin-top: 100px;
+    margin-bottom: 200px;
 }
 .count {
     margin: 17px;
